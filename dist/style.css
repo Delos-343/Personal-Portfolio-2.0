@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Work+Sans&display=swap');
+
+@import url('http://fonts.cdnfonts.com/css/monument-extended');
+
+
+#particles-js {
+  width: 100%; height: 55%;
+  position: absolute;
+  top: -6.5em; left: 0;
+}
+
+
+*{
+    margin: 0; padding: 0;
+    box-shadow: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --font: 'Montserrat', sans-serif;
+    --prime-font: 'Monument Extended', sans-serif;
+    --bg: #0C0C0C;
+    --main-color: #f9813a;
+    --main-font-color: #F1F1F1;
+    --sec-font-color: #fff;
+}
+
+body{
+    background: var(--bg);
+    font-family: var(--font);
+    color: var(--main-font-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.top-nav {
+  font-family: var(--font);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0C0C0C;
+  text-decoration: none;
+  color: #F1F1F1;
+  height: 50px;
+  padding: 1em;
+  z-index: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu > li {
+  margin: 0 1rem;
+}
+
+.menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+@media (max-width: 700px) {
+  .menu-button-container {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  #menu-toggle ~ .menu li {
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  #menu-toggle:checked ~ .menu li {
+    border: 1px solid #333;
+    height: 2.5em;
+    padding: 0.5em;
+    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .menu > li {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5em 0;
+    width: 100%;
+    color: white;
+    background-color: #222;
+  }
+  .menu > li:not(:last-child) {
+    border-bottom: 1px solid #444;
+  }
+}
+
+
+.main{
+    width: 85%; height: 690px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.main::before, .main::after{
+    content: '';
+    width: 80%; height: 70%;
+    background: #151618;
+    position: absolute;
+    bottom: 2em; right: -10%;
+    z-index: -10;
+    border-top: 1px solid #0000FF;
+    border-bottom: 1px solid #FFD700;
+}
+
+.main::after{
+    background: #15161885;
+    height: 60%;
+    top: 120px; left: -30%;
+    border-top: 1px solid #FFD700;
+    border-right: 1px solid #C0C0C0;
+    border-bottom: 1px solid #0000FF;
+    z-index: -11;
+}
+
+.box h1{
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 4em;
+    margin-top: 5em;
+}
+
+.box p{
+    font-size: 1.2em;
+    color: var(--sec-font-color);
+    margin-bottom: 1.2em;
+}
+
+.box .btn{
+    font-size: 1.2em;
+    background: none;
+    color: var(--sec-font-color);
+    border: none;
+    cursor: pointer;
+    border: 1px solid var(--main-color);
+    width: 7em;
+    height: 2.2em;  
+    transition: all .4s;
+}
+
+.box .btn:hover{
+    background: #0000FF;
+}
+
+.main img{
+    width: 30em; height: 14.7em;
+    position: absolute;
+    right: 60px; margin-top: 16em;
+    z-index: -1;
+  
+    border-top: 7px solid #FFD700;
+    border-right: 7px solid #C0C0C0;
+    border-bottom: 7px solid #0000FF;
+    border-left: 7px solid #F47174;
+  
+    filter: grayscale(100%);
+    transition: filter 0.5s;
+}
+
+.main img:hover {
+  filter: grayscale(0);
+}
+
+
+.about{
+    width: 100%;
+    padding: 8em 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: start;
+}
+
+.about .box_wrap{
+    margin: 2em 0;
+}
+
+.about .box_wrap .heading{
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    position: relative;
+}
+
+.about .box_wrap .heading::before{
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 10em; height: 8px;
+    background: var(--main-color);
+    z-index: -1;
+}
+
+.about .box_wrap .text{
+    color: var(--sec-font-color);
+}
+
+.about .box_wrap{
+    width: 35%;
+}
+
+.skills_box i{
+    margin-right: 0.5em;
+    margin-bottom: .5em;
+    color: var(--sec-font-color);
+}
+
+
+.education{
+    width: 100%;
+    background: #151618;
+    padding: 5em 0;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.education .left_box {
+    width: 20%;
+}
+
+.education .left_box .container {
+    margin: 2em 0;
+    transform: translateY(-8px);
+    transition: transform .4s;
+}
+
+.education .left_box .container:hover{
+    transform: translateY(0px);
+}
+
+.education .heading {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3em;
+    padding: 0 0 1em 0;
+}
+
+.education :is(h3, small, p) {
+    margin: 0.5em 1em;
+}
+
+.left_box .container {
+    position: relative;
+}
+
+.left_box .container::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    background: var(--main-color);
+    left: -20px;
+}
+
+.education :is(small, p){
+    color: var(--sec-font-color);
+}
+
+.education .right_box{
+    width: 40%;
+}
+
+.education .right_box img{
+    width: 100%;
+}
+
+
+.experience{
+    width: 100%;
+    padding: 5em 0;
+    flex-direction: column;
+}
+
+.experience h3{
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3em;
+}
+
+.experience ul{
+    list-style: none;
+}
+
+.experience ul li{
+    margin: 3em 0;
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+    background: #2b2d334f;
+    cursor: normal;
+    position: relative;
+}
+
+.experience ul li::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    background: var(--main-color);
+    top: 0;
+    left: -20px;
+    transform: translateY(8px);
+    transition: transform .4s;
+}
+
+.experience ul li:hover::before{
+    transform: translateY(0px);
+}
+
+.experience ul li :is(small, p){
+    margin: 0.4em 0;
+}
+
+
+.projects{
+    width: 100%;
+    padding: 5em 0;
+    background: #151618;
+    flex-direction: column;
+}
+
+.projects h3{
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3em;
+    padding: 1em;
+}
+
+.projects .container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.projects .container a{
+    text-decoration: none;
+    color: white;
+    margin: 2em 0.8em 0 0 ;
+    position: relative;
+}
+
+
+.projects .container a::before{
+    content: '\f0a9';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 700;
+    font-size: 2em;
+    background: #0000FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path .4s;
+}
+
+.projects .container a:hover::before{
+    clip-path: circle(70.7% at 50% 50%);
+}
+
+.projects .container a div{
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.034);
+}
+
+
+.contact{
+    width: 100%;
+    padding: 5em 0;
+    flex-direction: column;
+}
+
+.contact h3{
+    padding: 1em;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3em;
+}
+
+.contact form{
+    flex-direction: column;
+    min-width: 30%;
+}
+
+.contact form :is(input, textarea, button){
+    margin: 0.8em;
+    width: 100%;
+    height: 45px;
+    background: #1516186e;
+    color: white;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0.2em 1em ;
+}
+
+.contact form textarea{
+    resize: none;
+    height: 80px;
+}
+
+.contact form button{
+    background: var(--main-color);
+    cursor: pointer;
+    height: 40px;
+    font-size: 1em;
+}
+
+@media (max-width: 1250px){
+    .main img{ width: 25em; right: 0; }
+}
+
+@media (max-width: 1000px){
+  
+    body{ font-size: 14px; }
+  
+    .main img{ width: 35em; top: 80px; }
+  
+    .main{ align-items: flex-end; }
+  
+    .checkBtn{
+        display: block; width: 25px;
+        height: 25px; cursor: pointer;
+        position: relative; appearance: none;
+        -webkit-appearance: none;
+    }
+  
+    .checkBtn::before{
+        content: '\f0c9'; font-family: 'Font Awesome 5 Free';
+        font-weight: 700; font-size: 2em;
+        color: var(--sec-font-color);
+    }
+  
+    .checkBtn:checked::before{ content: '\f00d'; }
+  
+    .nav ol{
+        position: absolute; width: 80%;
+        flex-direction: column;  background: var(--bg);
+        top: 80px; z-index: 100; padding: 1.5em 0 5em 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: clip-path .5s;
+    }
+  
+    .checkBtn:checked ~ ol {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  
+    .nav ol::before{
+        content: '';  position: absolute;
+        bottom: 3px;
+        width: 100%;  height: 7px;
+        background: var(--main-color);
+    }
+}
+
+@media (max-width: 900px){
+    .main img{
+        width: 30em;
+    }   
+    .about .box_wrap, .education .left_box, .education .right_box{
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px){
+    .main img{
+        width: 22em;
+    }
+}
+
+@media (max-width: 400px){
+    body{
+        font-size: 10px;
+    }
+    .main{
+        height: 450px;
+    }
+}
+
+footer {
+    width: 100%;
+    padding: 3em 0;
+    flex-direction: column;
+    background: #1a1a1a;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: -3em;
+}
+
+footer .social_media_icons {
+    margin-top: 2em;
+}
+
+footer .social_media_icons a {
+    margin: 0 .8em;
+    border-radius: 50%;
+}
+
+footer .social_media_icons a i {
+    font-size: 1.8em;
+    padding: 0.2em;
+    transition: color 0.4s;
+}
+
+footer .social_media_icons a:hover i {
+    font-size: 1.8em;
+    padding: 0.2em;
+    color: rgba(25, 181, 254, 1);
+}
